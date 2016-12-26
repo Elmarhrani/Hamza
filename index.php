@@ -16,5 +16,9 @@ and open the template in the editor.
             <textarea name="email" cols="50" rows="10"></textarea>
             <input type="submit" value="Afficher">
         </form>
+        
+        <a href="./controller/masquer.php" >Masquer le Champs</a>
+        
+        
     </body>
 </html>

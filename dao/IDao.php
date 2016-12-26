@@ -15,4 +15,5 @@ interface IDao {
     //put your code here
     public  function create($obj);
     public function getDesc();
+    public function masquer();
 }

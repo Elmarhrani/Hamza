@@ -49,7 +49,26 @@ class CommentaireService implements IDao {
         $query = "SELECT  * FROM commentaire LIMIT 1 ";
         $stmt = $this->connexion->getConnextion()->query($query);
         $row=  $stmt->fetch();
-        echo $row["description"];
+        return  $row["description"];
+    }
+    public function masquer() {
+        $query = "SELECT count(*) FROM commentaire ";
+        $stmt = $this->connexion->getConnextion()->query($query);
+        
+        if($stmt->fetchColumn() > 0 ){
+            $description = 'vide';
+            $sql = "UPDATE commentaire SET description='$description' WHERE id=1";
+            // Prepare statement
+            $stmt = $this->connexion->getConnextion()->prepare($sql);
+            // execute the query
+            $stmt->execute();
+        }
+        else {
+             $query = "INSERT INTO commentaire (description) VALUES ('vide')";
+             $req = $this->connexion->getConnextion()->prepare($query);
+             $req->execute();
+        }
+        header('Location: http://localhost/HamzaProject/hamza.php'); 
     }
 
 }

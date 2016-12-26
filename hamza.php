@@ -31,14 +31,19 @@ and open the template in the editor.
         <title>Second Page</title>
     </head>
     <body>
-        <div id="test">
-            <div id="commentaire">
-              <?php
-                $service = new CommentaireService();
-                $service->getDesc();
-              ?>
+        Ici la page l 3adia li sifti liya f la photo
+        <?php
+            $service = new CommentaireService();
+            $com = $service->getDesc();
+            if( $com != 'vide') {
+        ?>
+            <div id="test">
+                <div id="commentaire">
+                    <?php echo $com ?>
+                </div> 
             </div>
-            
-        </div>
+        <?php
+            }
+        ?>
     </body>
 </html>
